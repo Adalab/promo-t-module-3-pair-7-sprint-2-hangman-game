@@ -6,6 +6,7 @@ import Dummy from './Dummy';
 import getWordFromApi from '../services/api';
 // styles
 import '../styles/App.scss';
+
 import '../styles/Dummy.scss';
 import '../styles/Letters.scss';
 import '../styles/Form.scss';
