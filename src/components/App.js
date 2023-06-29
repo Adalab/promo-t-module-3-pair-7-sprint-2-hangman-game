@@ -1,15 +1,21 @@
 import { useEffect, useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
 //components
 import Header from './Header';
 import Dummy from './Dummy';
+import Footer from './Footer';
 import SolutionLetters from './SolutionLetters';
 import ErrorLetters from './ErrorLetters';
+import Form from './Form';
+import Instructions from './Instrucitions';
+import Options from './Options';
+
 // api
 import getWordFromApi from '../services/api';
 // styles
 import '../styles/App.scss';
 
-import '../styles/Form.scss';
+
 
 
 
@@ -72,26 +78,11 @@ function App() {
         <section>
         <SolutionLetters word={word} userLetters={userLetters}/>
          <ErrorLetters word={word} userLetters={userLetters}/>
-          <form className='form' onSubmit={handleSubmit}>
-            <label className='title' htmlFor='last-letter'>
-              Escribe una letra:
-            </label>
-            <input
-              autoFocus
-              autoComplete='off'
-              className='form__input'
-              maxLength='1'
-              type='text'
-              name='last-letter'
-              id='last-letter'
-              value={lastLetter}
-              onKeyDown={handleKeyDown}
-              onChange={handleChange}
-            />
-          </form>
+          <Form handleSubmit={handleSubmit} lastLetter={lastLetter} handleKeyDown={handleKeyDown} handleChange={handleChange}/>
         </section>
         <Dummy numberOfErrors={getNumberOfErrors()}/>
       </main>
+      <Footer/>
     </div>
   );
 }
